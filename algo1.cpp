@@ -6,22 +6,19 @@ using namespace std;
 void do2win(int test)
 {
  
-
-ld tsearch(ld l, ld r) {
-    ld eps = 1e-9;              
-    rep(i,0,100) {
-        ld m1 = l + (r - l) / 3;
-        ld m2 = r - (r - l) / 3;
-        ld f1 = func1(m1);     
-        ld f2 = f(m2);      
-        if (f1 <= f2)
-            r = m2;
-        else
-            l = m1;
-    }
-
-    return func1(l);                  
-}
+    
+int fast_pow(int base, int n,int M) 
+{
+    if(n==0)
+       return 1;
+    if(n==1)
+    return base;
+    int halfn=fast_pow(base,n/2,M);
+    if(n%2==0)
+        return ( halfn * halfn ) % M;
+    else
+        return ( ( ( halfn * halfn ) % M ) * base ) % M;
+}  
 
 }
 //-------------------------------------------------------------------------------
