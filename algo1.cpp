@@ -6,21 +6,22 @@ using namespace std;
 void do2win(int test)
 {
  
-   SORT(b);
-   int p1=0;
 
-
-   rep(i,0,N)
-   {
-    if(p1>=sz(b))  break;
-
-    YY[i]=b[p1].S+1;
-    if(i==b[p1].F)
-    {
-      p1++;
+ld tsearch(ld l, ld r) {
+    ld eps = 1e-9;              
+    rep(i,0,100) {
+        ld m1 = l + (r - l) / 3;
+        ld m2 = r - (r - l) / 3;
+        ld f1 = func1(m1);     
+        ld f2 = f(m2);      
+        if (f1 <= f2)
+            r = m2;
+        else
+            l = m1;
     }
 
-   }
+    return func1(l);                  
+}
 
 }
 //-------------------------------------------------------------------------------
